@@ -3,19 +3,22 @@ public class Main {
         int currentPurchase = 2400;
         int purchaseAmount = 149200;
         int totalPurchases = currentPurchase + purchaseAmount;
-        int bonusBase = currentPurchase / 1000;
+        int roublesForBonusBase = 1000;
+        int bonusBase = currentPurchase / roublesForBonusBase;
         int bonusRateBlue = 50;
         int bonusRateSilver = 70;
         int bonusRateGold = 100;
-        if (totalPurchases <= 15000) {
+        int blueRateUpperBound = 15000;
+        int silverRateUpperBound = 150000;
+        if (totalPurchases <= blueRateUpperBound) {
             int bonusSum = bonusBase * bonusRateBlue;
             System.out.println("Сумма бонусов к начислению: " + bonusSum);
         }
-        if (15000 < totalPurchases && totalPurchases <= 150000) {
+        if (blueRateUpperBound < totalPurchases && totalPurchases <= silverRateUpperBound) {
             int bonusSum = bonusBase * bonusRateSilver;
             System.out.println("Сумма бонусов к начислению: " + bonusSum);
         }
-        if (totalPurchases > 150000) {
+        if (totalPurchases > silverRateUpperBound) {
             int bonusSum = bonusBase * bonusRateGold;
             System.out.println("Сумма бонусов к начислению: " + bonusSum);
         }
